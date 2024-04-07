@@ -12,15 +12,18 @@ export class NavbarComponent {
   result:any;
   jsonData: any;
   tracks: any[] = []; // Array to store track data (titles and images)
+  loading: boolean = false;
   constructor(private http: HttpClient){}
 
   searchSong(){
     console.log(this.serachItem);
+    this.loading = true;
     this.result = this.spotifyAPI + this.serachItem + '&type=track';
     console.log(this.result);
     this.http.get<any>(this.result).subscribe((data: any) => {
       this.jsonData = data;
       // Check if data exists and has the correct structure
+      this.loading = false;
       if (data && data.tracks && data.tracks.items) {
         this.tracks = data.tracks.items.map((item: any) => {
           return {
@@ -32,6 +35,7 @@ export class NavbarComponent {
         console.log(this.jsonData); // Log the data to see its structure
         console.log(this.tracks); 
       } else {
+        this.loading = false;
         console.error('Invalid API response:', data);
       }
     });
@@ -42,8 +46,8 @@ export class NavbarComponent {
   ngOnInit(): void {
     const strings: string[] = ['hindi songs', 'new songs', 'latest songs', 'trending_songs', 'party songs'];
     
-    this.serachItem=strings[Math.floor(Math.random() * strings.length)];
-    console.log(this.serachItem);
+    this.serachItem='trending_songs';
+    
     
     this.searchSong();
   }
