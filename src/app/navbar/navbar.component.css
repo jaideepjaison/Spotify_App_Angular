@@ -179,11 +179,12 @@ a {
 }
 
 .card-content {
-  background-color: rgba(255, 255, 255, 0.8); /* Transparent background */
+  backdrop-filter: blur(14px); 
+  background-color: rgba(255, 255, 255, 0.2); 
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+  box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2); 
 }
 
 .image-container {

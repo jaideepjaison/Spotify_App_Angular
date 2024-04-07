@@ -124,7 +124,7 @@
                 <div class="image-container">
                   <img *ngIf="track.image" [src]="track.image" alt="Card Image">
                 </div>
-                <h3>{{ track.title }}</h3>
+                <h3>{{ track.title | slice:0:10 }}</h3>
               </div>
             </a>
           </div>
