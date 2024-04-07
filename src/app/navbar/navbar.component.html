@@ -120,12 +120,15 @@
         <div class="card-list">
           <div *ngFor="let track of tracks" class="card-item">
             <a href="#">
-              <img *ngIf="track.image" [src]="track.image" alt="Card Image">
-              <h3>{{ track.title }}</h3>
+              <div class="card-content">
+                <div class="image-container">
+                  <img *ngIf="track.image" [src]="track.image" alt="Card Image">
+                </div>
+                <h3>{{ track.title }}</h3>
+              </div>
             </a>
           </div>
         </div>
-        
         
       </form>
     </div>

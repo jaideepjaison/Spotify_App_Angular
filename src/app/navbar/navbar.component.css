@@ -186,9 +186,16 @@ a {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
 }
 
-.card-content img {
-  max-width: 100%;
+.image-container {
+  width: 100%;
+  max-width: 200px; /* Adjust the maximum width as needed */
+  margin: 0 auto;
+}
+
+.image-container img {
+  width: 100%;
   height: auto;
+  display: block;
 }
 
 .card-content h3 {
