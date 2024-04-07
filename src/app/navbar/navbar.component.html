@@ -73,11 +73,26 @@
         }
       }
       .background-section {
-        background-image: url("https://img.freepik.com/free-vector/green-yellow-polygonal-background_1035-3338.jpg?w=740"); /* Replace 'your-image-url.jpg' with your image URL */
-        background-size: cover;
-        background-position: center;
-        height: 900px; /* Adjust the height as needed */
-      }
+  background-image: url("https://img.freepik.com/free-vector/green-yellow-polygonal-background_1035-3338.jpg?w=740"); /* Replace 'your-image-url.jpg' with your image URL */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; /* Use minimum height to ensure it covers the viewport */
+  padding: 50px 20px; /* Add padding to give space for content */
+  box-sizing: border-box; /* Ensure padding is included in the height */
+}
+
+@media screen and (max-width: 768px) {
+  .background-section {
+    padding: 30px 20px; /* Adjust padding for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .background-section {
+    padding: 20px 10px; /* Further adjust padding for extra small screens */
+  }
+}
+
     </style>
   </head>
   <body>
@@ -102,10 +117,15 @@
     </nav>
     <div class="background-section">
       <form >
-        <div *ngFor="let track of tracks">
-          <h3>{{ track.title }}</h3>
-          <img *ngIf="track.image" [src]="track.image" alt="Track Image">
+        <div class="card-list">
+          <div *ngFor="let track of tracks" class="card-item">
+            <a href="#">
+              <img *ngIf="track.image" [src]="track.image" alt="Card Image">
+              <h3>{{ track.title }}</h3>
+            </a>
+          </div>
         </div>
+        
       </form>
     </div>
     <footer>

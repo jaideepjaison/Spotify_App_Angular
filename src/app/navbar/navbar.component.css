@@ -153,3 +153,39 @@ a {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 }
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-item {
+  flex: 0 0 calc(33.33% - 20px); /* Adjust the width as needed */
+  margin: 10px;
+  text-align: center;
+}
+
+.card-item a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .card-item {
+    flex: 0 0 calc(50% - 20px); /* Adjust the width for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card-item {
+    flex: 0 0 calc(100% - 20px); /* Adjust the width for even smaller screens */
+  }
+}
