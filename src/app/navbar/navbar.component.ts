@@ -7,16 +7,21 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  serachItem:any;
+  serachItem:string='';
   spotifyAPI:any='https://v1.nocodeapi.com/jaison3666/spotify/ZxCnplbMayoPRJSG/search?q=';
   result:any;
   jsonData: any;
   tracks: any[] = []; // Array to store track data (titles and images)
   loading: boolean = false;
+  seach_check:boolean=false;
   constructor(private http: HttpClient){}
 
   searchSong(){
     console.log(this.serachItem);
+    if(this.serachItem=='')
+    {
+      this.seach_check=true;
+    }else{
     this.loading = true;
     this.result = this.spotifyAPI + this.serachItem + '&type=track';
     console.log(this.result);
@@ -40,13 +45,13 @@ export class NavbarComponent {
       }
     });
     
-    
+  }
   }
 
   ngOnInit(): void {
-    const strings: string[] = ['hindi songs', 'new songs', 'latest songs', 'trending_songs', 'party songs'];
+    const strings: string[] = ['hindi songs', 'new songs', 'latest songs', 'trending songs', 'party songs'];
     
-    this.serachItem='trending_songs';
+    this.serachItem=strings[Math.floor(Math.random() * strings.length)];
     
     
     this.searchSong();

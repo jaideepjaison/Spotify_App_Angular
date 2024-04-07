@@ -107,10 +107,11 @@
       <div class="search-container">
         <form>
           <div>
-            <input type="text" placeholder="Search" [(ngModel)]="serachItem" name="search" />
+            <input type="text" placeholder="Search" [(ngModel)]="serachItem" name="search" required/>
             <button type="submit" (click)="searchSong()">
               <i class="fa fa-search" style="font-size: 15px"></i>
             </button>
+            <span class="error_message" *ngIf="seach_check">Please enter here...</span>
           </div>
         </form>
       </div>
@@ -132,9 +133,9 @@
         </div>
         <!-- preloader.component.html -->
 
-<div class="preloader" *ngIf="loading">
+<!-- <div class="preloader" *ngIf="loading">
   <div class="spinner"></div>
-</div>
+</div> -->
 
         
       </form>
