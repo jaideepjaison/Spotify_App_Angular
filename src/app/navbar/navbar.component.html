@@ -125,6 +125,7 @@
                   <img *ngIf="track.image" [src]="track.image" alt="Card Image">
                 </div>
                 <h3>{{ track.title | slice:0:10 }}</h3>
+                <audio *ngIf="track.image" [src]="track.preview" controls></audio>
               </div>
             </a>
           </div>

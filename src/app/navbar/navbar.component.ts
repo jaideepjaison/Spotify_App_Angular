@@ -16,20 +16,25 @@ export class NavbarComponent {
 
   searchSong(){
     console.log(this.serachItem);
-    this.result=this.spotifyAPI+this.serachItem;
+    this.result = this.spotifyAPI + this.serachItem + '&type=track';
     console.log(this.result);
-    this.http.get<any>(this.result)
-      .subscribe((data: any) => {
-        this.jsonData = data;
-        this.tracks = data.albums.items.map((item: any) => {
+    this.http.get<any>(this.result).subscribe((data: any) => {
+      this.jsonData = data;
+      // Check if data exists and has the correct structure
+      if (data && data.tracks && data.tracks.items) {
+        this.tracks = data.tracks.items.map((item: any) => {
           return {
             title: item.name,
-            image: item.images.length > 0 ? item.images[0].url : null // Use the first image URL, or null if no image available
+            image: item.album.images.length > 0 ? item.album.images[0].url : null, // Use the first image URL, or null if no image available
+            preview:item.preview_url
           };
         });
         console.log(this.jsonData); // Log the data to see its structure
         console.log(this.tracks); 
-      });
+      } else {
+        console.error('Invalid API response:', data);
+      }
+    });
     
     
   }
