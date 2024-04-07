@@ -92,16 +92,22 @@
       <div class="search-container">
         <form>
           <div>
-            <input type="text" placeholder="Search" name="search" />
-            <button type="submit">
+            <input type="text" placeholder="Search" [(ngModel)]="serachItem" name="search" />
+            <button type="submit" (click)="searchSong()">
               <i class="fa fa-search" style="font-size: 15px"></i>
             </button>
           </div>
         </form>
       </div>
     </nav>
-    <div class="background-section"></div>
-
+    <div class="background-section">
+      <form >
+        <div *ngFor="let track of tracks">
+          <h3>{{ track.title }}</h3>
+          <img *ngIf="track.image" [src]="track.image" alt="Track Image">
+        </div>
+      </form>
+    </div>
     <footer>
       <app-footer></app-footer>
     </footer>
