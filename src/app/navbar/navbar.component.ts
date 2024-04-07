@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -37,6 +37,15 @@ export class NavbarComponent {
     });
     
     
+  }
+
+  ngOnInit(): void {
+    const strings: string[] = ['hindi songs', 'new songs', 'latest songs', 'trending_songs', 'party songs'];
+    
+    this.serachItem=strings[Math.floor(Math.random() * strings.length)];
+    console.log(this.serachItem);
+    
+    this.searchSong();
   }
 
 
