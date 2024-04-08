@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class NavbarComponent {
   serachItem: string = '';
   spotifyAPI: any =
-    'https://v1.nocodeapi.com/jaison3666/spotify/ZxCnplbMayoPRJSG/search?q=';
+    'https://v1.nocodeapi.com/boison123/spotify/lSFZDSffMxORXJPv/search?q=';
   result: any;
   jsonData: any;
   tracks: any[] = []; // Array to store track data (titles and images)
